@@ -12,7 +12,7 @@
             --lime: #CCFF00; 
             --glitch-red: #FF0033;
         }
-        /* Optimización para panel OLED: Negro absoluto #000000 */
+        /* Optimización OLED: Negro absoluto #000000 */
         body { font-family: 'Inter', sans-serif; background-color: #000000; color: white; overflow-x: hidden; scroll-behavior: smooth; }
         .font-sync { font-family: 'Syncopate', sans-serif; }
         .font-serif-italic { font-family: 'Playfair Display', serif; font-style: italic; }
@@ -56,8 +56,8 @@
         <div class="font-sync font-bold text-2xl tracking-tighter hover:text-red-glitch transition-colors cursor-pointer text-white" onclick="window.scrollTo(0,0)">SVKIA</div>
         <div class="hidden md:flex space-x-8 text-[10px] uppercase tracking-[0.3em] font-bold text-zinc-400">
             <a href="#music" class="hover:text-lime transition text-white">Música</a>
-            <a href="#moods" class="hover:text-lime transition text-white">San Valentín</a>
             <a href="#visuals" class="hover:text-lime transition text-white">Lanzamientos</a>
+            <a href="#moods" class="hover:text-lime transition text-white">Especial San Valentín</a>
             <a href="#press" class="hover:text-lime transition text-white">Diálogos</a>
             <a href="#lyrics" class="hover:text-lime transition text-white">Lírica</a>
         </div>
@@ -71,7 +71,7 @@
     <!-- HERO: CABECERA ESCENARIO -->
     <header class="h-screen flex flex-col justify-center items-center relative text-center px-4 overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <!-- Imagen CABECERA JPG (Tú en el escenario) -->
+            <!-- Imagen CABECERA JPG -->
             <img src="cabecera.jpg" alt="SVKIA Escenario" class="w-full h-full object-cover opacity-60">
             <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black"></div>
         </div>
@@ -88,60 +88,7 @@
         </div>
     </header>
 
-    <!-- SECCIÓN: SVKIA MOODS (San Valentín) -->
-    <section id="moods" class="py-32 px-8 bg-[#050505] border-b border-white/5">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-20 text-left">
-                <span class="text-red-glitch font-sync text-[10px] tracking-widest uppercase mb-4 block">SVKIA Moods</span>
-                <h2 class="font-sync text-4xl md:text-5xl tracking-tighter uppercase text-white">Recomendaciones San Valentín</h2>
-                <div class="w-24 h-1 bg-red-600 mx-auto mt-6 shadow-[0_0_10px_#ff0000]"></div>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
-                <!-- Tarjeta 1: Nuestro Refugio -->
-                <div class="glass p-6 rounded-3xl border-white/5 hover:border-lime transition-all group overflow-hidden">
-                    <div class="aspect-square bg-zinc-900 mb-6 rounded-2xl overflow-hidden relative">
-                        <img src="nuestro refugio portada.jpg" alt="Nuestro Refugio" class="featured-img opacity-80 group-hover:opacity-100">
-                    </div>
-                    <h3 class="font-sync text-sm mb-4 text-lime uppercase font-bold">Nuestro Refugio</h3>
-                    <p class="text-sm text-zinc-300 font-serif-italic mb-6">"Para dedicar a tu amor"</p>
-                    <a href="https://distrokid.com/hyperfollow/svkia/nuestro-refugio" target="_blank" class="block text-center py-2 bg-white text-black text-[10px] font-bold uppercase rounded-full hover:bg-lime transition shadow-lg">Escuchar</a>
-                </div>
-
-                <!-- Tarjeta 2: Mi Única Razón de Ser -->
-                <div class="glass p-6 rounded-3xl border-white/5 hover:border-red-glitch transition-all group overflow-hidden">
-                    <div class="aspect-square bg-zinc-900 mb-6 rounded-2xl overflow-hidden relative text-left">
-                        <img src="portada mi unica razon de ser.jpg" alt="Mi Única Razón de Ser" class="featured-img opacity-80 group-hover:opacity-100">
-                    </div>
-                    <h3 class="font-sync text-sm mb-4 text-red-glitch uppercase font-bold">Mi Única Razón de Ser</h3>
-                    <p class="text-sm text-zinc-300 font-serif-italic mb-6">"Para dedicar al amor perdido"</p>
-                    <a href="https://distrokid.com/hyperfollow/svkia/mi-nica-razn-de-ser" target="_blank" class="block text-center py-2 bg-white text-black text-[10px] font-bold uppercase rounded-full hover:bg-red-glitch transition shadow-lg">Escuchar</a>
-                </div>
-
-                <!-- Tarjeta 3: El Oro de Otros -->
-                <div class="glass p-6 rounded-3xl border-white/5 hover:border-zinc-400 transition-all group overflow-hidden text-left">
-                    <div class="aspect-square bg-zinc-900 mb-6 rounded-2xl overflow-hidden relative text-left">
-                        <img src="Diseño sin título.jpg" alt="El Oro de Otros" class="featured-img opacity-60 group-hover:opacity-100">
-                    </div>
-                    <h3 class="font-sync text-sm mb-4 text-zinc-300 uppercase font-bold">El Oro de Otros</h3>
-                    <p class="text-xs text-zinc-400 font-serif-italic mb-6 leading-relaxed">"Al amig@ que ha perdido a una persona que no le merecía"</p>
-                    <a href="https://distrokid.com/hyperfollow/svkia/el-oro-de-otros" target="_blank" class="block text-center py-2 bg-zinc-800 text-white text-[10px] font-bold uppercase rounded-full hover:bg-white hover:text-black transition">Escuchar</a>
-                </div>
-
-                <!-- Tarjeta 4: Acierto Seguro -->
-                <div class="glass p-6 rounded-3xl border-white/5 hover:border-red-glitch transition-all group overflow-hidden text-left">
-                    <div class="aspect-square bg-zinc-900 mb-6 rounded-2xl overflow-hidden relative">
-                        <img src="Acierto Seguro Imagen Portada.jpeg" alt="Acierto Seguro" class="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity">
-                    </div>
-                    <h3 class="font-sync text-sm mb-4 text-red-glitch uppercase font-bold">Acierto Seguro</h3>
-                    <p class="text-sm text-zinc-300 font-serif-italic mb-6">"Al amor al que te quieres declarar"</p>
-                    <a href="https://distrokid.com/hyperfollow/svkia/acierto-seguro" target="_blank" class="block text-center py-2 bg-white text-black text-[10px] font-bold uppercase rounded-full hover:bg-red-glitch transition shadow-lg">Escuchar</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PRIMERA LÍNEA DE FUEGO (NUEVA SECCIÓN DE VIDEOS) -->
+    <!-- PROXIMOS LANZAMIENTOS (NUEVA SECCIÓN) -->
     <section id="visuals" class="py-32 px-8 max-w-7xl mx-auto">
         <h2 class="font-sync text-3xl uppercase tracking-tighter mb-12 border-l-4 border-red-glitch pl-6 text-left text-white">Primera Línea de Fuego</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
@@ -197,6 +144,59 @@
                 </div>
             </div>
 
+        </div>
+    </section>
+
+    <!-- SECCIÓN: SVKIA MOODS (Especial San Valentín) -->
+    <section id="moods" class="py-32 px-8 bg-[#050505] border-b border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20 text-left">
+                <span class="text-red-glitch font-sync text-[10px] tracking-widest uppercase mb-4 block">SVKIA Moods</span>
+                <h2 class="font-sync text-4xl md:text-5xl tracking-tighter uppercase text-white">Recomendaciones San Valentín</h2>
+                <div class="w-24 h-1 bg-red-600 mx-auto mt-6 shadow-[0_0_10px_#ff0000]"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+                <!-- Tarjeta 1: Nuestro Refugio -->
+                <div class="glass p-6 rounded-3xl border-white/5 hover:border-lime transition-all group overflow-hidden">
+                    <div class="aspect-square bg-zinc-900 mb-6 rounded-2xl overflow-hidden relative">
+                        <img src="nuestro refugio portada.jpg" alt="Nuestro Refugio" class="featured-img opacity-80 group-hover:opacity-100">
+                    </div>
+                    <h3 class="font-sync text-sm mb-4 text-lime uppercase font-bold">Nuestro Refugio</h3>
+                    <p class="text-sm text-zinc-300 font-serif-italic mb-6">"Para dedicar a tu amor"</p>
+                    <a href="https://distrokid.com/hyperfollow/svkia/nuestro-refugio" target="_blank" class="block text-center py-2 bg-white text-black text-[10px] font-bold uppercase rounded-full hover:bg-lime transition shadow-lg">Escuchar</a>
+                </div>
+
+                <!-- Tarjeta 2: Mi Única Razón de Ser -->
+                <div class="glass p-6 rounded-3xl border-white/5 hover:border-red-glitch transition-all group overflow-hidden">
+                    <div class="aspect-square bg-zinc-900 mb-6 rounded-2xl overflow-hidden relative text-left">
+                        <img src="portada mi unica razon de ser.jpg" alt="Mi Única Razón de Ser" class="featured-img opacity-80 group-hover:opacity-100">
+                    </div>
+                    <h3 class="font-sync text-sm mb-4 text-red-glitch uppercase font-bold">Mi Única Razón de Ser</h3>
+                    <p class="text-sm text-zinc-300 font-serif-italic mb-6">"Para dedicar al amor perdido"</p>
+                    <a href="https://distrokid.com/hyperfollow/svkia/mi-nica-razn-de-ser" target="_blank" class="block text-center py-2 bg-white text-black text-[10px] font-bold uppercase rounded-full hover:bg-red-glitch transition shadow-lg">Escuchar</a>
+                </div>
+
+                <!-- Tarjeta 3: El Oro de Otros -->
+                <div class="glass p-6 rounded-3xl border-white/5 hover:border-zinc-400 transition-all group overflow-hidden text-left">
+                    <div class="aspect-square bg-zinc-900 mb-6 rounded-2xl overflow-hidden relative text-left">
+                        <img src="Diseño sin título.jpg" alt="El Oro de Otros" class="featured-img opacity-60 group-hover:opacity-100">
+                    </div>
+                    <h3 class="font-sync text-sm mb-4 text-zinc-300 uppercase font-bold">El Oro de Otros</h3>
+                    <p class="text-xs text-zinc-400 font-serif-italic mb-6 leading-relaxed">"Al amig@ que ha perdido a una persona que no le merecía"</p>
+                    <a href="https://distrokid.com/hyperfollow/svkia/el-oro-de-otros" target="_blank" class="block text-center py-2 bg-zinc-800 text-white text-[10px] font-bold uppercase rounded-full hover:bg-white hover:text-black transition">Escuchar</a>
+                </div>
+
+                <!-- Tarjeta 4: Acierto Seguro -->
+                <div class="glass p-6 rounded-3xl border-white/5 hover:border-red-glitch transition-all group overflow-hidden text-left">
+                    <div class="aspect-square bg-zinc-900 mb-6 rounded-2xl overflow-hidden relative">
+                        <img src="Acierto Seguro Imagen Portada.jpeg" alt="Acierto Seguro" class="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity">
+                    </div>
+                    <h3 class="font-sync text-sm mb-4 text-red-glitch uppercase font-bold">Acierto Seguro</h3>
+                    <p class="text-sm text-zinc-300 font-serif-italic mb-6">"Al amor al que te quieres declarar"</p>
+                    <a href="https://distrokid.com/hyperfollow/svkia/acierto-seguro" target="_blank" class="block text-center py-2 bg-white text-black text-[10px] font-bold uppercase rounded-full hover:bg-red-glitch transition shadow-lg">Escuchar</a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -301,6 +301,96 @@
                     ¡Adiós, viejas cenizas! Bella como la aurora, ya ninguna sombra se cierne. Es el amor que trajo la marea. Fuego vivo de día, tormenta suave de noche. Fuimos risas de dioses en un bello ocaso. Se fue en mitad de la noche. ¡Vuelven viejas cenizas, regresa la piel muerta! "Todo el amor que trajo la marea, hoy muere en esta arena."</div>
                 </details>
                 <!-- Se mantienen las 16 letras restantes aquí íntegras en la versión final -->
+                <details class="glass p-6 rounded-2xl group transition-all hover:bg-zinc-900/50">
+                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest"><span>Silent Night (Christmas Battle)</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform"></i></summary>
+                    <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light">The jingle bells begin to chime. It’s such a magic, happy time. Oh, Christmas Day is finally here! It’s bringing peace and hopeful love.
+                    You call this Christmas? What a lie! The prices are all way too high! It’s just a big old money scheme! So many lights, a total waste! They cut a million trees in haste. Oh, what a phony holiday! It's magic lights for one and all! Santa's coming to the land! A Merry Christmas... one and all!</div>
+                </details>
+
+                <details class="glass p-6 rounded-2xl group transition-all hover:bg-zinc-900/50">
+                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest"><span>Ávila en mi piel</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform"></i></summary>
+                    <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light text-left">Our story was carved in stone streets, where love whispered among ancient shadows. On the walls we embraced like vines, and every corner was a sigh that united our souls.
+                    Under a sky embroidered with bright stars, your voice was the echo that still trembles. Ávila en mi piel, en cada rincón, un fuego ardiente, un latido de amor. Aunque el tiempo huya y el viento te lleve, esa noche vivirá en mí como un dulce lamento.</div>
+                </details>
+
+                <details class="glass p-6 rounded-2xl group transition-all hover:bg-zinc-900/50">
+                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest"><span>Si tuviera el valor</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform"></i></summary>
+                    <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light">Cuando te vi aparecer todo lo que no eras tú se empezó a desvanecer. Tú eras el foco y la luz. Pero no tuve el valor para acercarme a ti.
+                    Si tuviera el coraje de acercarme a ti, te pediría un baile. ¿Qué sería de mí?, si me dijeras que sí... Tal vez podría abrazarte. Tal vez podría besarte. Pero nunca me atrevo y marcharte te veo.</div>
+                </details>
+
+                <details class="glass p-6 rounded-2xl group transition-all hover:bg-zinc-900/50">
+                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest"><span>Genial Guitarrista</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform"></i></summary>
+                    <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light">Hoy el Mississippi suena diferente, las aguas del pantano crean un ritmo creciente. Dicen que un maestro del bending y el slide ha llegado al pueblo, ¡y lo hace con pride!
+                    ¡Toca para nosotros, Genial guitarrista! ¡Que ruja esa guitarra, el escenario es tu pista! Con un alma del blues y raíces del folk. ¡Sube el ampli, que no pare el buen rock!</div>
+                </details>
+
+                <details class="glass p-6 rounded-2xl group transition-all hover:bg-zinc-900/50">
+                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest"><span>La luz que llevas dentro</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform"></i></summary>
+                    <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light">No sé si leerás esto hoy, o en un día que cueste respirar. Nunca olvides la luz que llevas dentro, ese faro que ilumina hasta el rincón más oscuro.
+                    Tu valor no reside en su memoria, te encuentro en la calidez de tu alma, en tu amor puro. Aunque creas que ya nadie lo ve, sigues brillando con una fuerza increíble. El mundo es mejor porque existes.</div>
+                </details>
+
+                <details class="glass p-6 rounded-2xl group transition-all hover:bg-zinc-900/50">
+                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest text-left font-bold"><span>Campanilleros obreros</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform"></i></summary>
+                    <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light font-bold">Bajo el cielo de la Nochebuena, sentado en el trono de la falsedad. Enfrentan al pueblo, se reparten el oro y levantan sus copas por la impunidad.
+                    Por la bata blanca que matan por lucro, porque en las escuelas cuenten la verdad. Por quienes defienden con furia el futuro, ¡Gritando en las calles por la dignidad!</div>
+                </details>
+
+                <details class="glass p-6 rounded-2xl group transition-all hover:bg-zinc-900/50">
+                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest"><span>Carne tinta y papel</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform"></i></summary>
+                    <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light">Hoy despierto y no estás, la cama es un desierto pero tu suerte la llevo clavada en el pecho. No importa la distancia, ni el tiempo, ni el muro. Si cierro los ojos, te toco, te juro. 
+                    ¡Porque somos de carne, de tinta y papel! ¡Leyendo el alma a través de la piel! El dulce misterio de verte venir. Tu cuerpo es el libro que quiero aprender.</div>
+                </details>
+
+                <details class="glass p-6 rounded-2xl group transition-all hover:bg-zinc-900/50">
+                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest text-left font-bold"><span>Sin dirección</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform"></i></summary>
+                    <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light font-bold">Quemé los libros y el despertador, cambié la corbata por un buen motor. No sigo rebaños, ni pido perdón, soy el dueño y señor de mi propia función.
+                    Y es que voy... ¡Voy sin dirección! No tengo nada... ¡y me sobra con lo que soy! Parando en cada esquina sin pensar a dónde ir, tengo mil razones que me hacen sonreír. ¡Elijo vivir!</div>
+                </details>
+
+                <details class="glass p-6 rounded-2xl group transition-all hover:bg-zinc-900/50">
+                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest font-bold text-left"><span>Amor Salvaje</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform"></i></summary>
+                    <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light">Dicen que el romántico no sabe de placer, que el fuego en la cama le puede corromper. Dicen que despertar abrazado junto a ti es un acto santo, prohibido de sentir.
+                    No existen etiquetas para amar ni fórmulas mágicas para enamorar. Solo te has de dejar llevar sin ningún miedo a naufragar. Ama en libertad.</div>
+                </details>
+
+                <details class="glass p-6 rounded-2xl group transition-all hover:bg-zinc-900/50">
+                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest font-bold"><span>Poder Respirar</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform"></i></summary>
+                    <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light">He resurgido de mi propia piel dejando atrás el viejo papel. Sobreviví a lo que tanto dolió, esa herida ya cicatrizó.
+                    Tengo una vida muy gratificante donde nunca quedo con nadie, he aprendido a salir adelante. Paso de todo, me dejo llevar. Sin hacer caso más que al aire ¡Que me ayuda a poder respirar!</div>
+                </details>
+
+                <details class="glass p-6 rounded-2xl group transition-all hover:bg-zinc-900/50">
+                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest font-bold"><span>Menguar y crecer</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform"></i></summary>
+                    <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light">Dicen que el tiempo lo cura, que todo pasará, una dulce mentira para no despertar. La magia ocurre si cambias el viento. No es el reloj, es la decisión de romper el espejo y tomar el timón.
+                    Y yo he decidido, bajo esta Luna, ser mejor que ayer, sin duda alguna. Pero nunca, nunca seré mejor que mañana.</div>
+                </details>
+
+                <details class="glass p-6 rounded-2xl group transition-all hover:bg-zinc-900/50">
+                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest font-bold"><span>El eco de lo que no fuimos</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform"></i></summary>
+                    <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light text-left italic">Dicen que la luz se esconde en los tejados, que hay poemas escritos en servilletas de bar donde el corazón intenta olvidar. Porque aunque tú no lo sepas, sigo aquí, guardando el eco de lo que no fuimos.
+                    Como un libro cerrado que insiste en vivir, vacío de renglones que nunca escribimos.</div>
+                </details>
+
+                <details class="glass p-6 rounded-2xl group transition-all hover:bg-zinc-900/50">
+                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest font-bold"><span>Mercaderes de lágrimas</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform"></i></summary>
+                    <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light">La Muerte no distingue ni avisa al llegar. Es un viento frío que nadie puede parar. Nos muestra lo frágil que es el simple hecho de existir.
+                    ¡Y es que ellos no ven vidas! ¡Solo ven un escalón! Somos carne fresca para su televisión. Convierten el llanto en armas arrojadizas. Buitres de traje buscando la rentabilidad.</div>
+                </details>
+
+                <details class="glass p-6 rounded-2xl group transition-all hover:bg-zinc-900/50">
+                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest font-bold"><span>El oro de otros</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform"></i></summary>
+                    <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light">Conexión virtual, sin mentiras de estado civil. El "mal con él" fue el código para entrar en mi perfil. De primeras fui amigo, luego cómplice. Supimos que éramos amantes, de encuentros sin un destino.
+                    El oro de otros nunca brilla igual. Que el amor debe ser total o se queda sin final. Mi valor no es negociable, no hay vuelta atrás. Porque sé que no seremos libres jamás.</div>
+                </details>
+
+                <details class="glass p-6 rounded-2xl group transition-all hover:bg-zinc-900/50">
+                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest font-bold"><span>Mi única razón de ser</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform"></i></summary>
+                    <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light">No hay ni un instante, ni un respiro en el silencio, ya nada es igual, se apagó la luz de ayer. Sin tregua a la angustia que vive en mi pecho. Y vive solo de la idea de volverte a ver.
+                    Y AUN ASÍ, SÉ QUE TE QUIERO MÁS QUE AYER. ERES LA VIDA QUE PERDÍ, MI RAZÓN DE SER... ¡MI ALMA ENCADENADA A TI!</div>
+                </details>
+
                 <details class="glass p-6 rounded-2xl group transition-all hover:bg-zinc-900/50 text-left">
                     <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest text-white text-left"><span>Nuestro refugio</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform"></i></summary>
                     <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light text-left font-bold italic">Suena la llave en la cerradura, atrás se queda la calle, la soledad más dura. Dejo el abrigo, el peso del día, y me recibes con un tierno "¿Qué tal ha ido el día?"
