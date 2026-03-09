@@ -11,9 +11,10 @@
         :root { 
             --lime: #CCFF00; 
             --glitch-red: #FF0033;
+            --purple-8m: #a855f7;
         }
         /* Optimización OLED: Negro absoluto #000000 */
-        body { font-family: 'Inter', sans-serif; background-color: #000000; color: white; overflow-x: hidden; scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: #000000; color: white; overflow-x: hidden; scroll-behavior: smooth; padding-top: 100px; }
         .font-sync { font-family: 'Syncopate', sans-serif; }
         .font-serif-italic { font-family: 'Playfair Display', serif; font-style: italic; }
         .text-lime { color: var(--lime); }
@@ -30,6 +31,8 @@
         
         .track-card:hover { border-color: var(--lime); background: rgba(204, 255, 0, 0.05); transform: translateY(-2px); transition: all 0.3s ease; }
         
+        /* Estilos de imágenes y fallbacks */
+        .img-container { background-color: #111; }
         .featured-img { transition: transform 0.7s ease, filter 0.5s ease; width: 100%; height: 100%; object-fit: cover; }
         .group:hover .featured-img { transform: scale(1.05); filter: brightness(1.1); }
 
@@ -37,29 +40,50 @@
         .interview-a { color: #e4e4e7; line-height: 1.8; margin-bottom: 2.5rem; font-weight: 300; font-size: 1.05rem; }
         .interview-block { margin-bottom: 4rem; }
 
-        @keyframes slideDown { from { transform: translateY(-100%); } to { transform: translateY(0); } }
-        .announcement-bar { animation: slideDown 0.8s ease; }
+        /* Ocultar barra de scroll en menú móvil */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 <body>
 
-    <!-- BARRA SUPERIOR -->
-    <div class="announcement-bar fixed top-0 w-full z-[60] bg-lime text-black py-2 px-4 text-center shadow-lg">
-        <a href="https://distrokid.com/hyperfollow/svkia/nuestro-refugio" target="_blank" class="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-3 text-black">
-            <span>Escucha 'Nuestro Refugio': Tu lugar seguro en la música</span>
+    <!-- BARRA SUPERIOR (PROMO PERSIANAS ARRIBA) -->
+    <div class="fixed top-0 w-full z-[60] bg-lime text-black py-2 px-4 text-center shadow-lg">
+        <a href="https://distrokid.com/hyperfollow/svkia/persianas-arriba" target="_blank" class="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-3 text-black hover:scale-105 transition-transform">
+            <span>Escucha 'Persianas Arriba': Canción de apoyo al comercio local</span>
             <i class="fas fa-external-link-alt"></i>
         </a>
     </div>
 
-    <!-- Navegación -->
-    <nav class="fixed w-full z-50 glass py-4 px-8 flex justify-between items-center border-b border-white/5 mt-10">
-        <div class="font-sync font-bold text-2xl tracking-tighter hover:text-red-glitch transition-colors cursor-pointer text-white" onclick="window.scrollTo(0,0)">SVKIA</div>
-        <div class="hidden md:flex space-x-8 text-[10px] uppercase tracking-[0.3em] font-bold text-zinc-400">
-            <a href="#music" class="hover:text-lime transition text-white">Música</a>
-            <a href="#visuals" class="hover:text-lime transition text-white">Lanzamientos</a>
-            <a href="#moods" class="hover:text-lime transition text-white">Especial San Valentín</a>
-            <a href="#press" class="hover:text-lime transition text-white">Diálogos</a>
-            <a href="#lyrics" class="hover:text-lime transition text-white">Lírica</a>
+    <!-- NUEVO MENÚ DE NAVEGACIÓN -->
+    <nav class="fixed top-[32px] w-full z-50 glass border-b border-white/5 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="font-sync font-bold text-2xl tracking-tighter hover:text-red-glitch transition-colors cursor-pointer text-white" onclick="window.scrollTo(0,0)">
+                    SVKIA
+                </div>
+                <!-- Menú Desktop -->
+                <div class="hidden lg:flex space-x-6 text-[10px] uppercase tracking-[0.2em] font-bold">
+                    <a href="#album" class="text-zinc-300 hover:text-lime transition">El Álbum</a>
+                    <a href="#visuals" class="text-zinc-300 hover:text-lime transition">Estrenos</a>
+                    <a href="#zona-feminista" class="text-purple-400 hover:text-white transition">Zona Feminista</a>
+                    <a href="#moods" class="text-zinc-300 hover:text-lime transition">San Valentín</a>
+                    <a href="#music" class="text-zinc-300 hover:text-lime transition">Catálogo</a>
+                    <a href="#press" class="text-zinc-300 hover:text-lime transition">Diálogos</a>
+                    <a href="#lyrics" class="text-zinc-300 hover:text-lime transition">Lírica</a>
+                </div>
+            </div>
+            <!-- Menú Mobile (Scroll horizontal) -->
+            <div class="lg:hidden flex overflow-x-auto py-3 space-x-6 text-[9px] uppercase tracking-[0.2em] font-bold text-zinc-400 no-scrollbar border-t border-white/5">
+                <a href="#album" class="hover:text-lime transition text-white whitespace-nowrap pl-4">El Álbum</a>
+                <a href="#visuals" class="hover:text-lime transition text-white whitespace-nowrap">Estrenos</a>
+                <a href="#zona-feminista" class="text-purple-400 hover:text-white transition whitespace-nowrap">Zona Feminista</a>
+                <a href="#moods" class="hover:text-lime transition text-white whitespace-nowrap">San Valentín</a>
+                <a href="#music" class="hover:text-lime transition text-white whitespace-nowrap">Catálogo</a>
+                <a href="#press" class="hover:text-lime transition text-white whitespace-nowrap">Diálogos</a>
+                <a href="#lyrics" class="hover:text-lime transition text-white whitespace-nowrap pr-4">Lírica</a>
+            </div>
         </div>
     </nav>
 
@@ -69,140 +93,225 @@
     </button>
 
     <!-- HERO: CABECERA ESCENARIO -->
-    <header class="h-screen flex flex-col justify-center items-center relative text-center px-4 overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <!-- Imagen CABECERA JPG -->
+    <header class="h-[90vh] flex flex-col justify-center items-center relative text-center px-4 overflow-hidden mt-[-100px]">
+        <div class="absolute inset-0 z-0 img-container">
             <img src="cabecera.jpg" alt="SVKIA Escenario" class="w-full h-full object-cover opacity-60">
-            <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/30 to-black"></div>
         </div>
-        <div class="z-10">
+        <div class="z-10 mt-20">
             <p class="text-lime font-sync text-[10px] tracking-[0.6em] mb-6 uppercase animate-pulse font-bold">Alma Humana, Sonido Infinito</p>
-            <h1 class="text-7xl md:text-[10rem] font-sync font-bold glow-lime mb-8 uppercase tracking-tighter leading-none text-white">SVKIA</h1>
-            <p class="max-w-2xl mx-auto text-zinc-300 mb-10 text-lg font-light leading-relaxed">
+            <h1 class="text-6xl md:text-[10rem] font-sync font-bold glow-lime mb-8 uppercase tracking-tighter leading-none text-white">SVKIA</h1>
+            <p class="max-w-2xl mx-auto text-zinc-300 mb-10 text-base md:text-lg font-light leading-relaxed">
                 El punto de colisión entre la <span class="text-white border-b border-red-glitch/30 font-bold">lírica visceral humana</span> y la vanguardia de la <span class="text-red-glitch font-bold">IA</span>.
             </p>
             <div class="flex flex-wrap justify-center gap-6">
-                <a href="#visuals" class="px-10 py-4 bg-lime text-black font-bold rounded-full uppercase text-xs tracking-widest hover:scale-105 transition shadow-2xl">Próximos Estrenos</a>
-                <a href="#lyrics" class="px-10 py-4 border border-white/20 hover:border-lime transition rounded-full uppercase text-xs tracking-widest text-white font-bold">Ver Cancionero</a>
+                <a href="#album" class="px-10 py-4 bg-lime text-black font-bold rounded-full uppercase text-xs tracking-widest hover:scale-105 transition shadow-2xl">Descubrir Álbum</a>
             </div>
         </div>
     </header>
 
-    <!-- PROXIMOS LANZAMIENTOS (NUEVA SECCIÓN) -->
-    <section id="visuals" class="py-32 px-8 max-w-7xl mx-auto">
-        <h2 class="font-sync text-3xl uppercase tracking-tighter mb-12 border-l-4 border-red-glitch pl-6 text-left text-white">Primera Línea de Fuego</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+    <!-- SECCIÓN: EL ÁLBUM (CRÓNICAS DE TINTA Y ROCK) -->
+    <section id="album" class="py-32 px-8 bg-[#050505] border-b border-white/5 pt-24 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                <!-- Portada del Álbum -->
+                <div class="w-full lg:w-1/2">
+                    <div class="aspect-square relative rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(204,255,0,0.15)] group">
+                        <img src="portada cronicas de tinta y rock.jpg" alt="Crónicas de Tinta y Rock" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.src='Diseño sin título.jpg'">
+                    </div>
+                </div>
+                
+                <!-- Info y Tracklist -->
+                <div class="w-full lg:w-1/2 text-left">
+                    <span class="text-lime font-sync text-[10px] tracking-widest uppercase mb-4 block font-bold">Primer Álbum de Estudio</span>
+                    <h2 class="font-sync text-4xl md:text-5xl lg:text-6xl tracking-tighter uppercase text-white mb-6 leading-none">Crónicas de Tinta y Rock</h2>
+                    <div class="w-20 h-1 bg-lime mb-8"></div>
+                    <p class="text-zinc-300 text-lg font-light leading-relaxed mb-10">
+                        El viaje definitivo a través de las historias de SVKIA. Un recorrido sonoro donde la reivindicación social, el amor y la fuerza del rock se entrelazan en cada acorde.
+                    </p>
+                    
+                    <h3 class="font-sync text-sm text-lime uppercase tracking-widest mb-6">Tracklist Oficial</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-sm text-zinc-400 font-light mb-10">
+                        <div class="border-b border-white/5 pb-2">1. Carne, Tinta y Papel</div>
+                        <div class="border-b border-white/5 pb-2">2. Ávila en mi piel (2026)</div>
+                        <div class="border-b border-white/5 pb-2">3. Acierto Seguro</div>
+                        <div class="border-b border-white/5 pb-2">4. Neón y Arena</div>
+                        <div class="border-b border-white/5 pb-2">5. Poder Respirar</div>
+                        <div class="border-b border-white/5 pb-2">6. Menguar y Crecer</div>
+                        <div class="border-b border-white/5 pb-2">7. Amor Salvaje</div>
+                        <div class="border-b border-white/5 pb-2">8. Sin Dirección (El Poder De Ser Libre)</div>
+                        <div class="border-b border-white/5 pb-2">9. Genial Guitarrista</div>
+                        <div class="border-b border-white/5 pb-2">10. Lo que siento</div>
+                        <div class="border-b border-white/5 pb-2">11. Mi única razón de ser</div>
+                    </div>
+                    
+                    <a href="https://open.spotify.com/intl-es/artist/7uyVbZBiboil8ENG4UTZM7" target="_blank" class="inline-block px-10 py-4 bg-white text-black font-bold rounded-full uppercase text-xs tracking-widest hover:bg-lime transition shadow-lg">
+                        <i class="fab fa-spotify mr-2"></i> Escuchar en Spotify
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRIMERA LÍNEA DE FUEGO (ESTRENOS) -->
+    <section id="visuals" class="py-32 px-8 max-w-7xl mx-auto pt-24">
+        <h2 class="font-sync text-3xl md:text-4xl uppercase tracking-tighter mb-4 border-l-4 border-red-glitch pl-6 text-left text-white">Primera Línea de Fuego</h2>
+        <p class="text-zinc-400 mb-12 pl-6 font-light">La nueva era discográfica. Calendario oficial de lanzamientos y novedades de SVKIA.</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-left">
             
             <!-- 1. El Pueblo y el Pan -->
-            <div class="glass rounded-2xl overflow-hidden group relative">
-                <div class="aspect-[9/16] lg:aspect-square relative bg-black">
+            <div class="glass rounded-2xl overflow-hidden group relative img-container">
+                <div class="aspect-video relative bg-black">
                     <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity">
                         <source src="Sirvienta_prepara_plato_barroco_con_granada.mp4" type="video/mp4">
                     </video>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent p-6 flex flex-col justify-end text-left">
-                        <h4 class="font-sync text-[10px] text-lime mb-1 font-bold">20 de Febrero 2026</h4>
-                        <h4 class="font-sync text-xs uppercase text-white font-bold">El pueblo y el pan</h4>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent p-8 flex flex-col justify-end text-left">
+                        <h4 class="font-sync text-xs text-lime mb-2 font-bold bg-black/50 w-fit px-3 py-1 rounded">20 de Febrero 2026</h4>
+                        <h4 class="font-sync text-2xl uppercase text-white font-bold">El pueblo y el pan</h4>
                     </div>
                 </div>
             </div>
 
             <!-- 2. El Peso del Silencio -->
-            <div class="glass rounded-2xl overflow-hidden group relative">
-                <div class="aspect-[9/16] lg:aspect-square relative bg-black">
+            <div class="glass rounded-2xl overflow-hidden group relative img-container border border-purple-500/30">
+                <div class="aspect-video relative bg-black">
                     <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity">
                         <source src="el peso del silencio spoty.mp4" type="video/mp4">
                     </video>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent p-6 flex flex-col justify-end text-left">
-                        <h4 class="font-sync text-[10px] text-lime mb-1 font-bold">1 de Marzo 2026</h4>
-                        <h4 class="font-sync text-xs uppercase text-white font-bold">El Peso del Silencio</h4>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent p-8 flex flex-col justify-end text-left">
+                        <h4 class="font-sync text-xs text-purple-400 mb-2 font-bold bg-black/50 w-fit px-3 py-1 rounded">1 de Marzo 2026</h4>
+                        <h4 class="font-sync text-2xl uppercase text-white font-bold">El Peso del Silencio</h4>
                     </div>
                 </div>
             </div>
 
             <!-- 3. Persianas Arriba -->
-            <div class="glass rounded-2xl overflow-hidden group relative">
-                <div class="aspect-[9/16] lg:aspect-square relative bg-black">
+            <div class="glass rounded-2xl overflow-hidden group relative img-container">
+                <div class="aspect-video relative bg-black">
                     <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity">
                         <source src="persianas arriba spoty.mp4" type="video/mp4">
                     </video>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent p-6 flex flex-col justify-end text-left">
-                        <h4 class="font-sync text-[10px] text-lime mb-1 font-bold">6 de Marzo</h4>
-                        <h4 class="font-sync text-xs uppercase text-white font-bold">Persianas Arriba</h4>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent p-8 flex flex-col justify-end text-left">
+                        <h4 class="font-sync text-xs text-lime mb-2 font-bold bg-black/50 w-fit px-3 py-1 rounded">6 de Marzo 2026</h4>
+                        <h4 class="font-sync text-2xl uppercase text-white font-bold">Persianas Arriba</h4>
                     </div>
                 </div>
             </div>
 
             <!-- 4. Eternamente Vallekas (Proximamente) -->
-            <div class="glass rounded-2xl overflow-hidden group relative border border-red-glitch/20">
-                <div class="aspect-[9/16] lg:aspect-square relative bg-zinc-900 flex items-center justify-center">
+            <div class="glass rounded-2xl overflow-hidden group relative border border-red-glitch/20 img-container">
+                <div class="aspect-video relative bg-zinc-950 flex items-center justify-center">
                     <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_#FF0033_0%,_transparent_70%)] opacity-20"></div>
-                    <div class="text-center z-10 p-4">
-                        <i class="fas fa-bolt text-red-glitch text-4xl mb-4 animate-pulse"></i>
-                        <h4 class="font-sync text-[10px] text-zinc-400 mb-1 font-bold tracking-widest">Próximamente</h4>
-                        <h4 class="font-sync text-xs uppercase text-white font-bold">Eternamente Vallekas</h4>
+                    <div class="text-center z-10 p-8">
+                        <i class="fas fa-bolt text-red-glitch text-5xl mb-6 animate-pulse"></i>
+                        <h4 class="font-sync text-xs text-zinc-400 mb-2 font-bold tracking-widest">Próximamente</h4>
+                        <h4 class="font-sync text-2xl uppercase text-white font-bold">Eternamente Vallekas</h4>
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- SECCIÓN: SVKIA MOODS (Especial San Valentín) -->
-    <section id="moods" class="py-32 px-8 bg-[#050505] border-b border-white/5">
+    <!-- ZONA FEMINISTA: EL PESO DEL SILENCIO -->
+    <section id="zona-feminista" class="py-32 px-8 bg-[#0a0514] border-t border-b border-purple-500/20 pt-24 relative overflow-hidden">
+        <!-- Decoración de fondo morada -->
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_#6b21a8_0%,_transparent_40%)] opacity-30"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_#9333ea_0%,_transparent_30%)] opacity-20"></div>
+        
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="text-center mb-16">
+                <span class="text-purple-400 font-sync text-[10px] tracking-widest uppercase mb-4 block font-bold">Zona Feminista</span>
+                <h2 class="font-sync text-5xl md:text-7xl tracking-tighter uppercase text-white mb-8 leading-tight">El Peso del Silencio</h2>
+                <p class="text-zinc-300 text-lg md:text-xl font-light leading-relaxed max-w-4xl mx-auto italic border-l-4 border-purple-500 pl-6 text-left">
+                    "Un viaje visual y sonoro por el 'Vía Crucis' que recorren miles de supervivientes de violencia sexual. Basado en datos reales y actuales, este vídeo denuncia la apatía judicial, el escrutinio mediático y la soledad del trauma."
+                </p>
+            </div>
+
+            <!-- YouTube Video Completo -->
+            <div class="w-full aspect-video rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(147,51,234,0.3)] mb-16 border border-purple-500/30 bg-black">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/KuSesU4wHGM" title="El Peso del Silencio" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            
+            <!-- Descarga de Fondos de Pantalla -->
+            <div>
+                <h3 class="font-sync text-sm text-purple-300 mb-8 uppercase tracking-widest text-center"><i class="fas fa-mobile-alt mr-2"></i> Fondos de Pantalla Conmemorativos</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <!-- Fondo 1 -->
+                    <div class="glass p-6 rounded-3xl border-purple-500/30 text-center group flex flex-col items-center">
+                        <div class="w-full aspect-video md:aspect-square lg:aspect-video overflow-hidden rounded-xl mb-6 bg-zinc-900">
+                            <img src="fondo_8m_1.jpg" alt="Fondo 8M 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform" onerror="this.style.display='none'">
+                        </div>
+                        <a href="fondo_8m_1.jpg" download class="w-full block py-4 bg-purple-900/50 border border-purple-500 text-white text-[10px] uppercase tracking-widest font-bold hover:bg-purple-600 transition rounded-full"><i class="fas fa-download mr-2"></i>Descargar Fondo 1</a>
+                    </div>
+                    <!-- Fondo 2 -->
+                    <div class="glass p-6 rounded-3xl border-purple-500/30 text-center group flex flex-col items-center">
+                        <div class="w-full aspect-video md:aspect-square lg:aspect-video overflow-hidden rounded-xl mb-6 bg-zinc-900">
+                            <img src="fondo_8m_2.jpg" alt="Fondo 8M 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform" onerror="this.style.display='none'">
+                        </div>
+                        <a href="fondo_8m_2.jpg" download class="w-full block py-4 bg-purple-900/50 border border-purple-500 text-white text-[10px] uppercase tracking-widest font-bold hover:bg-purple-600 transition rounded-full"><i class="fas fa-download mr-2"></i>Descargar Fondo 2</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: SVKIA MOODS (San Valentín) -->
+    <section id="moods" class="py-32 px-8 bg-[#050505] border-t border-b border-white/5 pt-24">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-20 text-left">
+            <div class="text-center mb-20 text-left md:text-center">
                 <span class="text-red-glitch font-sync text-[10px] tracking-widest uppercase mb-4 block">SVKIA Moods</span>
                 <h2 class="font-sync text-4xl md:text-5xl tracking-tighter uppercase text-white">Recomendaciones San Valentín</h2>
-                <div class="w-24 h-1 bg-red-600 mx-auto mt-6 shadow-[0_0_10px_#ff0000]"></div>
+                <div class="w-24 h-1 bg-red-600 md:mx-auto mt-6 shadow-[0_0_10px_#ff0000]"></div>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
                 <!-- Tarjeta 1: Nuestro Refugio -->
                 <div class="glass p-6 rounded-3xl border-white/5 hover:border-lime transition-all group overflow-hidden">
-                    <div class="aspect-square bg-zinc-900 mb-6 rounded-2xl overflow-hidden relative">
+                    <div class="aspect-square img-container mb-6 rounded-2xl overflow-hidden relative">
                         <img src="nuestro refugio portada.jpg" alt="Nuestro Refugio" class="featured-img opacity-80 group-hover:opacity-100">
                     </div>
                     <h3 class="font-sync text-sm mb-4 text-lime uppercase font-bold">Nuestro Refugio</h3>
-                    <p class="text-sm text-zinc-300 font-serif-italic mb-6">"Para dedicar a tu amor"</p>
-                    <a href="https://distrokid.com/hyperfollow/svkia/nuestro-refugio" target="_blank" class="block text-center py-2 bg-white text-black text-[10px] font-bold uppercase rounded-full hover:bg-lime transition shadow-lg">Escuchar</a>
+                    <p class="text-sm text-zinc-300 font-serif-italic mb-6 h-10">"Para dedicar a tu amor"</p>
+                    <a href="https://distrokid.com/hyperfollow/svkia/nuestro-refugio" target="_blank" class="block text-center py-3 bg-white text-black text-[10px] font-bold uppercase rounded-full hover:bg-lime transition shadow-lg">Escuchar</a>
                 </div>
 
                 <!-- Tarjeta 2: Mi Única Razón de Ser -->
                 <div class="glass p-6 rounded-3xl border-white/5 hover:border-red-glitch transition-all group overflow-hidden">
-                    <div class="aspect-square bg-zinc-900 mb-6 rounded-2xl overflow-hidden relative text-left">
+                    <div class="aspect-square img-container mb-6 rounded-2xl overflow-hidden relative text-left">
                         <img src="portada mi unica razon de ser.jpg" alt="Mi Única Razón de Ser" class="featured-img opacity-80 group-hover:opacity-100">
                     </div>
                     <h3 class="font-sync text-sm mb-4 text-red-glitch uppercase font-bold">Mi Única Razón de Ser</h3>
-                    <p class="text-sm text-zinc-300 font-serif-italic mb-6">"Para dedicar al amor perdido"</p>
-                    <a href="https://distrokid.com/hyperfollow/svkia/mi-nica-razn-de-ser" target="_blank" class="block text-center py-2 bg-white text-black text-[10px] font-bold uppercase rounded-full hover:bg-red-glitch transition shadow-lg">Escuchar</a>
+                    <p class="text-sm text-zinc-300 font-serif-italic mb-6 h-10">"Para dedicar al amor perdido"</p>
+                    <a href="https://distrokid.com/hyperfollow/svkia/mi-nica-razn-de-ser" target="_blank" class="block text-center py-3 bg-white text-black text-[10px] font-bold uppercase rounded-full hover:bg-red-glitch transition shadow-lg">Escuchar</a>
                 </div>
 
                 <!-- Tarjeta 3: El Oro de Otros -->
                 <div class="glass p-6 rounded-3xl border-white/5 hover:border-zinc-400 transition-all group overflow-hidden text-left">
-                    <div class="aspect-square bg-zinc-900 mb-6 rounded-2xl overflow-hidden relative text-left">
+                    <div class="aspect-square img-container mb-6 rounded-2xl overflow-hidden relative text-left">
                         <img src="Diseño sin título.jpg" alt="El Oro de Otros" class="featured-img opacity-60 group-hover:opacity-100">
                     </div>
                     <h3 class="font-sync text-sm mb-4 text-zinc-300 uppercase font-bold">El Oro de Otros</h3>
-                    <p class="text-xs text-zinc-400 font-serif-italic mb-6 leading-relaxed">"Al amig@ que ha perdido a una persona que no le merecía"</p>
-                    <a href="https://distrokid.com/hyperfollow/svkia/el-oro-de-otros" target="_blank" class="block text-center py-2 bg-zinc-800 text-white text-[10px] font-bold uppercase rounded-full hover:bg-white hover:text-black transition">Escuchar</a>
+                    <p class="text-xs text-zinc-400 font-serif-italic mb-6 leading-relaxed h-10">"Al amig@ que ha perdido a una persona que no le merecía"</p>
+                    <a href="https://distrokid.com/hyperfollow/svkia/el-oro-de-otros" target="_blank" class="block text-center py-3 bg-zinc-800 text-white text-[10px] font-bold uppercase rounded-full hover:bg-white hover:text-black transition">Escuchar</a>
                 </div>
 
                 <!-- Tarjeta 4: Acierto Seguro -->
                 <div class="glass p-6 rounded-3xl border-white/5 hover:border-red-glitch transition-all group overflow-hidden text-left">
-                    <div class="aspect-square bg-zinc-900 mb-6 rounded-2xl overflow-hidden relative">
+                    <div class="aspect-square img-container mb-6 rounded-2xl overflow-hidden relative">
                         <img src="Acierto Seguro Imagen Portada.jpeg" alt="Acierto Seguro" class="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity">
                     </div>
                     <h3 class="font-sync text-sm mb-4 text-red-glitch uppercase font-bold">Acierto Seguro</h3>
-                    <p class="text-sm text-zinc-300 font-serif-italic mb-6">"Al amor al que te quieres declarar"</p>
-                    <a href="https://distrokid.com/hyperfollow/svkia/acierto-seguro" target="_blank" class="block text-center py-2 bg-white text-black text-[10px] font-bold uppercase rounded-full hover:bg-red-glitch transition shadow-lg">Escuchar</a>
+                    <p class="text-sm text-zinc-300 font-serif-italic mb-6 h-10">"Al amor al que te quieres declarar"</p>
+                    <a href="https://distrokid.com/hyperfollow/svkia/acierto-seguro" target="_blank" class="block text-center py-3 bg-white text-black text-[10px] font-bold uppercase rounded-full hover:bg-red-glitch transition shadow-lg">Escuchar</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Catálogo Completo (18 Temas) -->
-    <section id="music" class="py-24 px-8 max-w-7xl mx-auto border-t border-white/5">
-        <h2 class="font-sync text-2xl uppercase tracking-tighter mb-12 text-left text-white font-bold">Catálogo Digital Completo</h2>
+    <!-- CATÁLOGO COMPLETO -->
+    <section id="music" class="py-32 px-8 max-w-7xl mx-auto pt-24 border-b border-white/5">
+        <h2 class="font-sync text-2xl md:text-3xl uppercase tracking-tighter mb-12 text-left text-white font-bold border-l-4 border-lime pl-6">Catálogo Digital Completo</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
             <a href="https://distrokid.com/hyperfollow/svkia/nen-y-arena" target="_blank" class="glass p-4 rounded-xl text-xs track-card flex justify-between items-center group text-white"><span>Neon y Arena</span><i class="fas fa-external-link-alt text-lime"></i></a>
             <a href="https://distrokid.com/hyperfollow/svkia/acierto-seguro" target="_blank" class="glass p-4 rounded-xl text-xs track-card flex justify-between items-center group text-white"><span>Acierto Seguro</span><i class="fas fa-external-link-alt text-lime"></i></a>
@@ -210,7 +319,7 @@
             <a href="https://distrokid.com/hyperfollow/svkia/amor-salvaje" target="_blank" class="glass p-4 rounded-xl text-xs track-card flex justify-between items-center group text-white"><span>Amor Salvaje</span><i class="fas fa-external-link-alt text-lime"></i></a>
             <a href="https://distrokid.com/hyperfollow/svkia/this-aint-no-silent-night" target="_blank" class="glass p-4 rounded-xl text-xs track-card flex justify-between items-center group text-white"><span>Silent Night</span><i class="fas fa-external-link-alt text-lime"></i></a>
             <a href="https://distrokid.com/hyperfollow/svkia/la-luz-que-llevas-dentro" target="_blank" class="glass p-4 rounded-xl text-xs track-card flex justify-between items-center group text-white"><span>La luz que llevas dentro</span><i class="fas fa-external-link-alt text-lime"></i></a>
-            <a href="https://distrokid.com/hyperfollow/svkia/los-campanilleros-obreros" target="_blank" class="glass p-4 rounded-xl text-xs track-card flex justify-between items-center group text-white"><span>Campanilleros Obreros</span><i class="fas fa-external-link-alt text-red-glitch text-left"></i></a>
+            <a href="https://distrokid.com/hyperfollow/svkia/los-campanilleros-obreros" target="_blank" class="glass p-4 rounded-xl text-xs track-card flex justify-between items-center group text-white border-red-glitch/30"><span>Campanilleros Obreros</span><i class="fas fa-external-link-alt text-red-glitch text-left"></i></a>
             <a href="https://distrokid.com/hyperfollow/svkia/carne-tinta-y-papel-strange-things" target="_blank" class="glass p-4 rounded-xl text-xs track-card flex justify-between items-center group text-white"><span>Carne Tinta y Papel</span><i class="fas fa-external-link-alt text-lime text-left"></i></a>
             <a href="https://distrokid.com/hyperfollow/svkia/si-tuviera-el-valor-amor-en-silencio" target="_blank" class="glass p-4 rounded-xl text-xs track-card flex justify-between items-center group text-white"><span>Si Tuviera el Valor</span><i class="fas fa-external-link-alt text-lime text-left"></i></a>
             <a href="https://distrokid.com/hyperfollow/svkia/genial-guitarrista" target="_blank" class="glass p-4 rounded-xl text-xs track-card flex justify-between items-center group text-white"><span>Genial Guitarrista</span><i class="fas fa-external-link-alt text-lime"></i></a>
@@ -221,12 +330,12 @@
             <a href="https://distrokid.com/hyperfollow/svkia/mercaderes-de-lgrimas-no-somos-cifras" target="_blank" class="glass p-4 rounded-xl text-xs track-card flex justify-between items-center group text-white"><span>Mercaderes de Lágrimas</span><i class="fas fa-external-link-alt text-lime text-left"></i></a>
             <a href="https://distrokid.com/hyperfollow/svkia/el-oro-de-otros" target="_blank" class="glass p-4 rounded-xl text-xs track-card flex justify-between items-center group text-white"><span>El Oro de Otros</span><i class="fas fa-external-link-alt text-lime text-left"></i></a>
             <a href="https://distrokid.com/hyperfollow/svkia/mi-nica-razn-de-ser" target="_blank" class="glass p-4 rounded-xl text-xs track-card flex justify-between items-center group text-white"><span>Mi Única Razón de Ser</span><i class="fas fa-external-link-alt text-lime text-left"></i></a>
-            <a href="https://distrokid.com/hyperfollow/svkia/nuestro-refugio" target="_blank" class="glass p-4 rounded-xl text-xs track-card flex justify-between items-center group border-lime/20 font-bold text-white"><span>Nuestro Refugio</span><i class="fas fa-star text-lime"></i></a>
+            <a href="https://distrokid.com/hyperfollow/svkia/nuestro-refugio" target="_blank" class="glass p-4 rounded-xl text-xs track-card flex justify-between items-center group border-lime/30 font-bold text-white"><span>Nuestro Refugio</span><i class="fas fa-star text-lime"></i></a>
         </div>
     </section>
 
     <!-- DIÁLOGOS HÍBRIDOS (ENTREVISTA COMPLETA) -->
-    <section id="press" class="py-32 bg-[#050505] px-8 border-t border-white/5">
+    <section id="press" class="py-32 bg-[#050505] px-8 border-t border-white/5 pt-24">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-20 text-left font-bold">
                 <span class="text-red-glitch font-sync text-[10px] tracking-widest uppercase mb-4 block font-bold text-left">Encuentro Editorial</span>
@@ -290,114 +399,132 @@
         </div>
     </section>
 
-    <!-- LÍRICA (Archivo Completo de 17 Letras) -->
-    <section id="lyrics" class="py-32 bg-zinc-900/10 px-8 border-t border-white/5">
+    <!-- LÍRICA (CANCIONERO RESTAURADO AL 100% - LAS 17 LETRAS) -->
+    <section id="lyrics" class="py-32 bg-zinc-900/10 px-8 border-t border-white/5 pt-24">
         <div class="max-w-4xl mx-auto">
             <h2 class="font-sync text-4xl mb-16 tracking-widest uppercase border-b border-white/5 pb-8 text-center font-bold text-white">Archivo de Lírica</h2>
             <div class="grid gap-4">
+                
+                <!-- 1. Neon y Arena -->
                 <details class="glass p-6 rounded-2xl group transition-all hover:bg-zinc-900/50">
                     <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest text-white text-left"><span>Neon y Arena</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform text-left font-bold"></i></summary>
                     <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light">Ella llegó entre risas, con ojos de azul calma, yo con mi armadura oxidada, que guardaba mi alma. Me sonrió y rompió mi cerco por completo. Su energía vital transformó mi ceguera en jovial locura. Su voz, por fin, me alzó de mi letargo.
                     ¡Adiós, viejas cenizas! Bella como la aurora, ya ninguna sombra se cierne. Es el amor que trajo la marea. Fuego vivo de día, tormenta suave de noche. Fuimos risas de dioses en un bello ocaso. Se fue en mitad de la noche. ¡Vuelven viejas cenizas, regresa la piel muerta! "Todo el amor que trajo la marea, hoy muere en esta arena."</div>
                 </details>
-                <!-- Se mantienen las 16 letras restantes aquí íntegras en la versión final -->
+
+                <!-- 2. Silent Night -->
                 <details class="glass p-6 rounded-2xl group transition-all hover:bg-zinc-900/50">
-                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest"><span>Silent Night (Christmas Battle)</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform"></i></summary>
+                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest text-white text-left"><span>Silent Night (Battle)</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform text-left font-bold"></i></summary>
                     <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light">The jingle bells begin to chime. It’s such a magic, happy time. Oh, Christmas Day is finally here! It’s bringing peace and hopeful love.
                     You call this Christmas? What a lie! The prices are all way too high! It’s just a big old money scheme! So many lights, a total waste! They cut a million trees in haste. Oh, what a phony holiday! It's magic lights for one and all! Santa's coming to the land! A Merry Christmas... one and all!</div>
                 </details>
 
+                <!-- 3. Ávila en mi piel -->
                 <details class="glass p-6 rounded-2xl group transition-all hover:bg-zinc-900/50">
-                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest"><span>Ávila en mi piel</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform"></i></summary>
-                    <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light text-left">Our story was carved in stone streets, where love whispered among ancient shadows. On the walls we embraced like vines, and every corner was a sigh that united our souls.
-                    Under a sky embroidered with bright stars, your voice was the echo that still trembles. Ávila en mi piel, en cada rincón, un fuego ardiente, un latido de amor. Aunque el tiempo huya y el viento te lleve, esa noche vivirá en mí como un dulce lamento.</div>
+                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest text-white text-left"><span>Ávila en mi piel</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform text-left font-bold"></i></summary>
+                    <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light">Our story was carved in stone streets, where love whispered among ancient shadows. On the walls we embraced like vines, and every corner was a sigh that united our souls.
+                    Under a sky embroidered with bright stars, your voice was the echo que aún tiembla en mi piel. Ávila en mi piel, en cada rincón, un fuego ardiente, un latido de amor. Aunque el tiempo huya y el viento te lleve, esa noche vivirá en mí como un dulce lamento.</div>
                 </details>
 
+                <!-- 4. Si tuviera el valor -->
                 <details class="glass p-6 rounded-2xl group transition-all hover:bg-zinc-900/50">
-                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest"><span>Si tuviera el valor</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform"></i></summary>
+                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest text-white text-left"><span>Si tuviera el valor</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform text-left font-bold"></i></summary>
                     <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light">Cuando te vi aparecer todo lo que no eras tú se empezó a desvanecer. Tú eras el foco y la luz. Pero no tuve el valor para acercarme a ti.
-                    Si tuviera el coraje de acercarme a ti, te pediría un baile. ¿Qué sería de mí?, si me dijeras que sí... Tal vez podría abrazarte. Tal vez podría besarte. Pero nunca me atrevo y marcharte te veo.</div>
+                    Si tuviera el coraje de acercarme a ti, te pediría un baile. ¿Qué sería de mí?, si me dijeras que sí... Tal vez podría abrazarte. Tal vez podría besarte.</div>
                 </details>
 
+                <!-- 5. Genial Guitarrista -->
                 <details class="glass p-6 rounded-2xl group transition-all hover:bg-zinc-900/50">
-                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest"><span>Genial Guitarrista</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform"></i></summary>
-                    <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light">Hoy el Mississippi suena diferente, las aguas del pantano crean un ritmo creciente. Dicen que un maestro del bending y el slide ha llegado al pueblo, ¡y lo hace con pride!
-                    ¡Toca para nosotros, Genial guitarrista! ¡Que ruja esa guitarra, el escenario es tu pista! Con un alma del blues y raíces del folk. ¡Sube el ampli, que no pare el buen rock!</div>
+                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest text-white text-left"><span>Genial Guitarrista</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform text-left font-bold"></i></summary>
+                    <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light">Hoy el Mississippi suena diferente, las aguas del pantano crean un ritmo creciente. Dicen que un maestro del bending y el slide ha llegado al pueblo, ¡y lo hace con orgullo!
+                    ¡Toca para nosotros, Genial Guitarrista! ¡Que ruja esa guitarra, el escenario es tu pista! Con un alma del blues y raíces del folk. ¡Sube el ampli, que no pare el buen rock!</div>
                 </details>
 
+                <!-- 6. La luz que llevas dentro -->
                 <details class="glass p-6 rounded-2xl group transition-all hover:bg-zinc-900/50">
-                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest"><span>La luz que llevas dentro</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform"></i></summary>
+                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest text-white text-left"><span>La luz que llevas dentro</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform text-left font-bold"></i></summary>
                     <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light">No sé si leerás esto hoy, o en un día que cueste respirar. Nunca olvides la luz que llevas dentro, ese faro que ilumina hasta el rincón más oscuro.
                     Tu valor no reside en su memoria, te encuentro en la calidez de tu alma, en tu amor puro. Aunque creas que ya nadie lo ve, sigues brillando con una fuerza increíble. El mundo es mejor porque existes.</div>
                 </details>
 
+                <!-- 7. Campanilleros obreros -->
                 <details class="glass p-6 rounded-2xl group transition-all hover:bg-zinc-900/50">
-                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest text-left font-bold"><span>Campanilleros obreros</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform"></i></summary>
-                    <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light font-bold">Bajo el cielo de la Nochebuena, sentado en el trono de la falsedad. Enfrentan al pueblo, se reparten el oro y levantan sus copas por la impunidad.
+                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest text-white text-left"><span>Campanilleros obreros</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform text-left font-bold"></i></summary>
+                    <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light">Bajo el cielo de la Nochebuena, sentado en el trono de la falsedad. Enfrentan al pueblo, se reparten el oro y levantan sus copas por la impunidad.
                     Por la bata blanca que matan por lucro, porque en las escuelas cuenten la verdad. Por quienes defienden con furia el futuro, ¡Gritando en las calles por la dignidad!</div>
                 </details>
 
+                <!-- 8. Carne tinta y papel -->
                 <details class="glass p-6 rounded-2xl group transition-all hover:bg-zinc-900/50">
-                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest"><span>Carne tinta y papel</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform"></i></summary>
+                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest text-white text-left"><span>Carne tinta y papel</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform text-left font-bold"></i></summary>
                     <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light">Hoy despierto y no estás, la cama es un desierto pero tu suerte la llevo clavada en el pecho. No importa la distancia, ni el tiempo, ni el muro. Si cierro los ojos, te toco, te juro. 
                     ¡Porque somos de carne, de tinta y papel! ¡Leyendo el alma a través de la piel! El dulce misterio de verte venir. Tu cuerpo es el libro que quiero aprender.</div>
                 </details>
 
+                <!-- 9. Sin dirección -->
                 <details class="glass p-6 rounded-2xl group transition-all hover:bg-zinc-900/50">
-                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest text-left font-bold"><span>Sin dirección</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform"></i></summary>
-                    <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light font-bold">Quemé los libros y el despertador, cambié la corbata por un buen motor. No sigo rebaños, ni pido perdón, soy el dueño y señor de mi propia función.
+                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest text-white text-left"><span>Sin dirección</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform text-left font-bold"></i></summary>
+                    <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light">Quemé los libros y el despertador, cambié la corbata por un buen motor. No sigo rebaños, ni pido perdón, soy el dueño y señor de mi propia función.
                     Y es que voy... ¡Voy sin dirección! No tengo nada... ¡y me sobra con lo que soy! Parando en cada esquina sin pensar a dónde ir, tengo mil razones que me hacen sonreír. ¡Elijo vivir!</div>
                 </details>
 
+                <!-- 10. Amor Salvaje -->
                 <details class="glass p-6 rounded-2xl group transition-all hover:bg-zinc-900/50">
-                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest font-bold text-left"><span>Amor Salvaje</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform"></i></summary>
+                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest text-white text-left"><span>Amor Salvaje</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform text-left font-bold"></i></summary>
                     <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light">Dicen que el romántico no sabe de placer, que el fuego en la cama le puede corromper. Dicen que despertar abrazado junto a ti es un acto santo, prohibido de sentir.
                     No existen etiquetas para amar ni fórmulas mágicas para enamorar. Solo te has de dejar llevar sin ningún miedo a naufragar. Ama en libertad.</div>
                 </details>
 
+                <!-- 11. Poder Respirar -->
                 <details class="glass p-6 rounded-2xl group transition-all hover:bg-zinc-900/50">
-                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest font-bold"><span>Poder Respirar</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform"></i></summary>
+                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest text-white text-left"><span>Poder Respirar</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform text-left font-bold"></i></summary>
                     <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light">He resurgido de mi propia piel dejando atrás el viejo papel. Sobreviví a lo que tanto dolió, esa herida ya cicatrizó.
                     Tengo una vida muy gratificante donde nunca quedo con nadie, he aprendido a salir adelante. Paso de todo, me dejo llevar. Sin hacer caso más que al aire ¡Que me ayuda a poder respirar!</div>
                 </details>
 
+                <!-- 12. Menguar y crecer -->
                 <details class="glass p-6 rounded-2xl group transition-all hover:bg-zinc-900/50">
-                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest font-bold"><span>Menguar y crecer</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform"></i></summary>
+                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest text-white text-left"><span>Menguar y crecer</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform text-left font-bold"></i></summary>
                     <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light">Dicen que el tiempo lo cura, que todo pasará, una dulce mentira para no despertar. La magia ocurre si cambias el viento. No es el reloj, es la decisión de romper el espejo y tomar el timón.
                     Y yo he decidido, bajo esta Luna, ser mejor que ayer, sin duda alguna. Pero nunca, nunca seré mejor que mañana.</div>
                 </details>
 
+                <!-- 13. El eco de lo que no fuimos -->
                 <details class="glass p-6 rounded-2xl group transition-all hover:bg-zinc-900/50">
-                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest font-bold"><span>El eco de lo que no fuimos</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform"></i></summary>
-                    <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light text-left italic">Dicen que la luz se esconde en los tejados, que hay poemas escritos en servilletas de bar donde el corazón intenta olvidar. Porque aunque tú no lo sepas, sigo aquí, guardando el eco de lo que no fuimos.
+                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest text-white text-left"><span>El eco de lo que no fuimos</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform text-left font-bold"></i></summary>
+                    <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light">Dicen que la luz se esconde en los tejados, que hay poemas escritos en servilletas de bar donde el corazón intenta olvidar. Porque aunque tú no lo sepas, sigo aquí, guardando el eco de lo que no fuimos.
                     Como un libro cerrado que insiste en vivir, vacío de renglones que nunca escribimos.</div>
                 </details>
 
+                <!-- 14. Mercaderes de lágrimas -->
                 <details class="glass p-6 rounded-2xl group transition-all hover:bg-zinc-900/50">
-                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest font-bold"><span>Mercaderes de lágrimas</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform"></i></summary>
+                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest text-white text-left"><span>Mercaderes de lágrimas</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform text-left font-bold"></i></summary>
                     <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light">La Muerte no distingue ni avisa al llegar. Es un viento frío que nadie puede parar. Nos muestra lo frágil que es el simple hecho de existir.
                     ¡Y es que ellos no ven vidas! ¡Solo ven un escalón! Somos carne fresca para su televisión. Convierten el llanto en armas arrojadizas. Buitres de traje buscando la rentabilidad.</div>
                 </details>
 
+                <!-- 15. El oro de otros -->
                 <details class="glass p-6 rounded-2xl group transition-all hover:bg-zinc-900/50">
-                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest font-bold"><span>El oro de otros</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform"></i></summary>
+                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest text-white text-left"><span>El oro de otros</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform text-left font-bold"></i></summary>
                     <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light">Conexión virtual, sin mentiras de estado civil. El "mal con él" fue el código para entrar en mi perfil. De primeras fui amigo, luego cómplice. Supimos que éramos amantes, de encuentros sin un destino.
                     El oro de otros nunca brilla igual. Que el amor debe ser total o se queda sin final. Mi valor no es negociable, no hay vuelta atrás. Porque sé que no seremos libres jamás.</div>
                 </details>
 
+                <!-- 16. Mi única razón de ser -->
                 <details class="glass p-6 rounded-2xl group transition-all hover:bg-zinc-900/50">
-                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest font-bold"><span>Mi única razón de ser</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform"></i></summary>
+                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest text-white text-left"><span>Mi única razón de ser</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform text-left font-bold"></i></summary>
                     <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light">No hay ni un instante, ni un respiro en el silencio, ya nada es igual, se apagó la luz de ayer. Sin tregua a la angustia que vive en mi pecho. Y vive solo de la idea de volverte a ver.
                     Y AUN ASÍ, SÉ QUE TE QUIERO MÁS QUE AYER. ERES LA VIDA QUE PERDÍ, MI RAZÓN DE SER... ¡MI ALMA ENCADENADA A TI!</div>
                 </details>
 
+                <!-- 17. Nuestro refugio -->
                 <details class="glass p-6 rounded-2xl group transition-all hover:bg-zinc-900/50 text-left">
-                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest text-white text-left"><span>Nuestro refugio</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform"></i></summary>
+                    <summary class="font-sync flex justify-between items-center text-sm uppercase font-bold tracking-widest text-white text-left"><span>Nuestro refugio</span><i class="fas fa-plus text-lime group-open:rotate-45 transition-transform text-left font-bold"></i></summary>
                     <div class="mt-8 text-zinc-300 leading-relaxed text-center italic space-y-4 whitespace-pre-line font-light text-left font-bold italic">Suena la llave en la cerradura, atrás se queda la calle, la soledad más dura. Dejo el abrigo, el peso del día, y me recibes con un tierno "¿Qué tal ha ido el día?"
                     Quédate un rato aquí conmigo, que estando a tu lado no siento amenazas. Y este silencio que sabe a hogar. En este refugio que sabe querer... que sabe amar.</div>
                 </details>
             </div>
-            <p class="text-center text-[10px] uppercase tracking-widest text-zinc-700 mt-10 italic font-bold">Archivo Digital de Lírica Actualizado.</p>
+            <p class="text-center text-[10px] uppercase tracking-widest text-zinc-700 mt-10 italic font-bold">Archivo Digital de Lírica Actualizado (17 Temas).</p>
         </div>
     </section>
 
@@ -407,18 +534,21 @@
         <div class="relative z-10 font-bold">
             <div class="font-sync text-6xl md:text-[10rem] mb-4 tracking-tighter opacity-10 leading-none text-white">SVKIA</div>
             <p class="text-lime font-sync text-[10px] tracking-[0.5em] mb-12 uppercase font-bold tracking-widest">Independent Management</p>
-            <a href="mailto:info@svkia.com" class="text-2xl md:text-4xl font-light hover:text-red-glitch transition-colors mb-16 inline-block tracking-tighter text-white">info@svkia.com</a>
+            
             <div class="flex justify-center flex-wrap gap-10 text-3xl mt-12 mb-20 text-white font-bold">
                 <a href="https://open.spotify.com/intl-es/artist/7uyVbZBiboil8ENG4UTZM7" target="_blank" class="hover:text-lime transition"><i class="fab fa-spotify"></i></a>
                 <a href="https://www.instagram.com/svkia.music/" target="_blank" class="hover:text-lime transition"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.tiktok.com/@svkia0" target="_blank" class="hover:text-lime transition"><i class="fab fa-tiktok"></i></a>
                 <a href="http://www.youtube.com/@SVKIA" target="_blank" class="hover:text-lime transition"><i class="fab fa-youtube"></i></a>
+                <a href="https://music.apple.com/es/artist/svkia/1857325648" target="_blank" class="hover:text-lime transition"><i class="fab fa-apple"></i></a>
+                <a href="#" target="_blank" class="hover:text-lime transition"><i class="fab fa-pinterest"></i></a>
             </div>
             <p class="text-[9px] uppercase tracking-[0.8em] text-zinc-800 italic font-bold">© 2026 SVKIA. Alma Humana, Sonido Infinito.</p>
         </div>
     </footer>
 
     <script>
+        // Lógica para que el botón de volver arriba aparezca
         window.onscroll = function() {
             const btn = document.getElementById("backToTop");
             if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
